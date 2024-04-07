@@ -6,8 +6,8 @@ const moduleSchema = new mongoose.Schema(
     // modules: [{ type: mongoose.Schema.Types.ObjectId, ref: "ModuleModel" }],
     course: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "CourseModel",
-      required: [true, "Please provide course name"],
+      ref: "Course",
+      required: [true, "Please provide course"],
     },
   },
   { collection: "modules" }

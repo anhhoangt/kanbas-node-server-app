@@ -4,6 +4,18 @@ export const createModule = (module) => {
   delete module._id;
   return model.create(module);
 };
+// export const createModule = (req, res) => {
+//   const module = req.body;
+//   module.course = req.params.courseId;
+//   delete module._id;
+//   model.create(module, (err, newModule) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.json(newModule);
+//     }
+//   });
+// };
 export const findAllModules = () => model.find();
 export const findModuleById = (moduleId) => model.findOne({ id: moduleId });
 export const findModulesForCourse = (courseId) =>

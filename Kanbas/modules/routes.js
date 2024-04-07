@@ -8,7 +8,7 @@ export default function ModuleRoutes(app) {
     // res.json(modules);
     const modules = await dao.findAllModules();
     if (!modules || !modules.length) {
-      res.status(404).send("No modules found");
+      res.status(404).send("[1] No modules found");
     } else {
       res.json(modules);
     }
@@ -18,7 +18,7 @@ export default function ModuleRoutes(app) {
   const findModuleById = async (req, res) => {
     const module = await dao.findModuleById(req.params.id);
     if (!module) {
-      res.status(404).send("Module not found");
+      res.status(404).send("[2] Module not found");
     } else {
       res.json(module);
     }
@@ -28,15 +28,24 @@ export default function ModuleRoutes(app) {
     const { courseId } = req.params;
     const modules = await dao.findModulesForCourse(courseId);
     if (!modules || !modules.length) {
-      res.status(404).send("No modules found");
+      res.status(404).send("[3] No modules found");
     } else {
       res.json(modules);
     }
   };
 
   //create module
+  // const createModule = async (req, res) => {
+  //   const course = req.params.cid;
+  //   const module = await dao.createModule(req.body);
+  //   res.json(module);
+  // };
+  //create module
   const createModule = async (req, res) => {
-    const module = await dao.createModule(req.body);
+    const courseId = req.params.cid;
+    const moduleData = req.body;
+    moduleData.course = courseId;
+    const module = await dao.createModule(moduleData);
     res.json(module);
   };
 
