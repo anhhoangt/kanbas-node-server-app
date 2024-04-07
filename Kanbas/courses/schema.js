@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 export default mongoose.Schema(
   {
-    id: String,
     name: String,
     number: String,
     startDate: Date,

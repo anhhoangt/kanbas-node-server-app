@@ -6,12 +6,15 @@ import "dotenv/config";
 import session from "express-session";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
-import AssignmentsRoutes from "./Kanbas/assignments/route.js";
+import AssignmentsRoutes from "./Kanbas/assignments/routes.js";
 import UsersRoutes from "./Kanbas/users/routes.js";
 import SecurityController from "./SecurityController.js";
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://localhost:27017/kanbas");
+const CONNECTION_STRING =
+  process.env.DB_CONNECTION_STRING || "mongodb://localhost:27017/kanbas";
+mongoose.connect(CONNECTION_STRING);
+
 const app = express();
 app.use(
   cors({
@@ -44,3 +47,6 @@ Hello(app);
 Lab5(app);
 // app.listen(4000);
 app.listen(process.env.PORT || 4000);
+
+//mongodb+srv://<username>:<password>@cluster0.spmiv.mongodb.net/
+//8TCawp0RI2lrNvsr
