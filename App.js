@@ -47,6 +47,3 @@ Hello(app);
 Lab5(app);
 // app.listen(4000);
 app.listen(process.env.PORT || 4000);
-
-//mongodb+srv://<username>:<password>@cluster0.spmiv.mongodb.net/
-//8TCawp0RI2lrNvsr
