@@ -20,7 +20,7 @@ export default function AssignmentsRoutes(app) {
   };
 
   const findAssignmentsForCourse = async (req, res) => {
-    const { courseId } = req.params.courseId;
+    const { courseId } = req.params;
     const assignments = await dao.findAssignmentsForCourse(courseId);
     if (!assignments) {
       res.status(404).send("No assignments found");
