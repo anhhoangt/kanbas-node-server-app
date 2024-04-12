@@ -7,7 +7,9 @@ import session from "express-session";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
 import AssignmentsRoutes from "./Kanbas/assignments/routes.js";
+// create questionsroutes
 import UsersRoutes from "./Kanbas/users/routes.js";
+import QuizzesRoutes from "./Kanbas/quizzes/routes.js";
 import SecurityController from "./SecurityController.js";
 import mongoose from "mongoose";
 
@@ -42,11 +44,9 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentsRoutes(app);
 UsersRoutes(app);
+QuizzesRoutes(app);
 SecurityController(app);
 Hello(app);
 Lab5(app);
 // app.listen(4000);
 app.listen(process.env.PORT || 4000);
-
-//mongodb+srv://<username>:<password>@cluster0.spmiv.mongodb.net/
-//8TCawp0RI2lrNvsr
