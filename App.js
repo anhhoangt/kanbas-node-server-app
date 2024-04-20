@@ -10,6 +10,8 @@ import AssignmentsRoutes from "./Kanbas/assignments/routes.js";
 // create questionsroutes
 import UsersRoutes from "./Kanbas/users/routes.js";
 import QuizzesRoutes from "./Kanbas/quizzes/routes.js";
+import QuestionsRoutes from "./Kanbas/questions/routes.js";
+import AnswersRoutes from "./Kanbas/answers/routes.js";
 import SecurityController from "./SecurityController.js";
 import mongoose from "mongoose";
 
@@ -36,6 +38,7 @@ if (process.env.NODE_ENV !== "development") {
   sessionOptions.cookie = {
     sameSite: "none",
     secure: true,
+    domain: "https://kanbas-node-server-app-bshj.onrender.com",
   };
 }
 app.use(session(sessionOptions));
@@ -45,6 +48,8 @@ ModuleRoutes(app);
 AssignmentsRoutes(app);
 UsersRoutes(app);
 QuizzesRoutes(app);
+QuestionsRoutes(app);
+AnswersRoutes(app);
 SecurityController(app);
 Hello(app);
 Lab5(app);
